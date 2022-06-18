@@ -69,6 +69,8 @@ router.post('/login',
             // }
             // const authToken = jwt.sign(data, 'onepieceisreal');
             success = true;
+            user.status = 'online';
+            await user.save();
             res.json(user);
         } catch (error) {
             res.status(400).send("Some error occured");
